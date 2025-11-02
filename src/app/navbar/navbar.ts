@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-  open = false;
+  open = signal(false);
 
   toggleMenu() {
-    this.open = !this.open;
+    this.open.update((isOpen) => !isOpen);
   }
 }
