@@ -6,7 +6,7 @@ import { Navbar } from './navbar/navbar';
   selector: 'app-root',
   imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss', './reset.css'],
+  styleUrls: ['./app.scss'],
 })
 export class App {
   protected readonly title = signal('borrow-buddy');
