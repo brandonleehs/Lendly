@@ -4,6 +4,7 @@
     <p>Lendly</p>
   </div>
 
+  <!-- Mobile view -->
   <div class="menu">
     <button class="menu__button" [class.menu__button--open]="open()" (click)="toggleMenu()">
       <svg
@@ -49,4 +50,16 @@
       <a routerLink="/">Sign up</a>
     </section>
   </div>
+
+  <!-- Desktop view -->
+  <section class="mid" [attr.data-open]="open()" [attr.data-closed]="closed()">
+    <a routerLink="/">Home</a>
+    <a routerLink="/">Browse</a>
+    <a routerLink="/">About</a>
+    <a routerLink="/">Contact</a>
+  </section>
+
+  <section class="end">
+    <a routerLink="/">Login</a> <a class="signup" routerLink="/">Sign up</a>
+  </section>
 </nav>

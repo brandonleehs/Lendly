@@ -9,6 +9,80 @@
   background-color: white;
 }
 
+.mid {
+  display: none;
+  gap: 2rem;
+}
+
+.end {
+  display: none;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+
+  .navbar {
+    justify-content: space-between;
+    color: var(--muted-foreground);
+    align-items: center;
+    padding: 1.5rem 1rem;
+
+    a:hover {
+      color: var(--color-neutral-700);
+    }
+
+    a:active {
+      color: var(--accent-foreground);
+    }
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .mid {
+    display: flex;
+  }
+
+  .end {
+    display: flex;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .navbar {
+    padding: 1.5rem;
+  }
+
+  .mid {
+    gap: 3rem;
+  }
+
+  .end {
+    gap: 2rem;
+  }
+}
+
+.signup {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--rounded-lg);
+  font-size: var(--text-sm);
+
+  .end &:hover {
+    color: var(--color-neutral-200);
+  }
+
+  .end &:active {
+    color: var(--color-neutral-300);
+  }
+
+}
+
 .brand {
   color: var(--color-blue-600);
   font-size: var(--text-lg);
