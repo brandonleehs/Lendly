@@ -1,1 +1,102 @@
-<p>login works!</p>
+<main class="login">
+  <form class="form" (submit)="(submitForm)">
+    <img src="/logo.svg" alt="logo" class="logo" />
+    <div class="greet">
+      <p class="login__title">Welcome Back</p>
+      <p class="login__subtitle">Login to your Lendly account.</p>
+    </div>
+    <section class="outer-wrapper">
+      <div class="inner-wrapper">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+          <input
+            [class.valid]="email.valid"
+            [class.user-invalid]="email.invalid && email.touched"
+            type="email"
+            placeholder="you@example.com"
+            id="email"
+            [formControl]="email"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-mail-icon lucide-mail mail-icon"
+          >
+            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+          </svg>
+        </div>
+        @if (
+          (email.errors?.['required'] && email.touched) ||
+          (email.errors?.['required'] && email.dirty)
+        ) {
+          <p class="alert">This field is required.</p>
+        }
+        @if (
+          email.errors?.['email'] && (email.touched || (email.errors?.['required'] && email.dirty))
+        ) {
+          <p class="alert">Please enter a valid email address.</p>
+        }
+      </div>
+      <div class="inner-wrapper">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="password"
+            [class.valid]="password.valid"
+            [class.user-invalid]="password.invalid && password.touched"
+            [formControl]="password"
+            placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-lock-icon lucide-lock"
+          >
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        @if (
+          (password.errors?.['required'] && password.touched) ||
+          (password.errors?.['required'] && password.dirty)
+        ) {
+          <p class="alert">This field is required.</p>
+        }
+        @if (
+          password.errors?.['minlength'] &&
+          password.touched &&
+          password.errors?.['minlength'] &&
+          password.dirty
+        ) {
+          <p class="alert">Must be at least 8 characters long.</p>
+        }
+        @if (
+          password.errors?.['passwordStrength'] &&
+          password.touched &&
+          password.errors?.['passwordStrength'] &&
+          password.dirty
+        ) {
+          <p class="alert">Password must include upper, lower, number & special character.</p>
+        }
+      </div>
+    </section>
+
+    <button class="login__button">Login</button>
+  </form>
+</main>
